@@ -1,11 +1,13 @@
-I18nExtracter
-=============
+= I18nExtracter
+
+Forked version of: http://github.com/Bertg/i18n_extractor
+
+Original author: bertg
 
 This plugin will extract as many as possible I18n keys form your Rails project.
 Several methods are employed:
 
-Extracting keys
-===============
+== Extracting keys
 
 First all possible keys are collected
 
@@ -22,16 +24,15 @@ If needed new keys will be translated using Google translate. These translations
 will be marked as # FUZZZY. If you remove the # FUZZZY marker you accept the translation
 and the marker won't be placed again.
 
-Finally all the available variables for a translation key are added as a comment. 
+Finally all the available variables for a translation key are added as a comment.
 These are updated each time you run the script, without changing your translation.
 
-  I18n.translate('welcome_message', :name => @user.name, :destination => @destination) 
+  I18n.translate('welcome_message', :name => @user.name, :destination => @destination)
   => welcome_message: "Welcome message" # FUZZZY # VARIABLES(name, destination)
 
-Saving translation file
-=======================
+== Saving translation file
 
-When the *file* option is given the YAML output will be placed in that file. If 
+When the *file* option is given the YAML output will be placed in that file. If
 the file exists it will be updated:
 
 * No keys will be deleted
@@ -39,13 +40,12 @@ the file exists it will be updated:
 * # VARIABLES will be updated
 * order of values will be preserved
 
-Installation
-============
+== Installation
 
   script/plugin install git://github.com/Bertg/i18n_extractor/tree/master
 
-TODO
-====
+== TODO
+
 * [parsing]       when translation has :scope as a variable, update the key
 * [parsing]       use the recording method as much as possible, it results in more correct results (haml, ruby files)
 * [parsing]       parse ERB files
